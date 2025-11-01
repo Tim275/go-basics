@@ -1,0 +1,51 @@
+# Air Configuration für 2_Go_API Hot-Reload
+root = "."
+testdata_dir = "testdata"
+tmp_dir = "tmp"
+
+[build]
+  # Welche Datei soll gebaut werden?
+  cmd = "go build -o ./bin/api ./cmd/api"
+  
+  # Welche Binary soll ausgeführt werden?
+  bin = "./bin/api"
+  
+  # Welche Dateien sollen überwacht werden?
+  include_ext = ["go", "tpl", "tmpl", "html"]
+  
+  # Welche Ordner sollen ausgeschlossen werden?
+  exclude_dir = ["bin", "tmp", "vendor", "testdata", "docs"]
+  
+  # Welche Dateien sollen ignoriert werden?
+  exclude_file = []
+  
+  # Welche Ordner sollen überwacht werden?
+  include_dir = ["cmd", "internal"]
+  
+  # Verzögerung vor Neustart (in Millisekunden)
+  delay = 1000
+  
+  # Stop running old binary when build errors occur
+  stop_on_error = true
+  
+  # Build arguments
+  args_bin = []
+  
+  # Zeige Logs beim Rebuild
+  log = "build-errors.log"
+
+[color]
+  # Farben für die Ausgabe
+  main = "magenta"
+  watcher = "cyan" 
+  build = "yellow"
+  runner = "green"
+
+[log]
+  # Zeige Zeit in Logs
+  time = true
+  main_only = false
+
+[misc]
+  # Lösche tmp Ordner beim Exit
+  clean_on_exit = true
