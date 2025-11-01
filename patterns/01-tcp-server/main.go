@@ -92,14 +92,27 @@ func handleConnection(conn net.Conn) {
    > hello
    > quit
 
-🌐 OSI Layer 4 - Transport Layer:
+🌐 OSI Model - TCP ist Layer 4 (Transport):
    ┌──────────────────┐
-   │ Application (7)  │ ← HTTP, FTP, SMTP
+   │ Layer 7          │ ← Application: HTTP, FTP, SMTP
+   │ Application      │
    ├──────────────────┤
-   │ Transport (4)    │ ← TCP (zuverlässig), UDP (schnell)
+   │ Layer 6          │ ← Presentation: SSL/TLS, Encryption
+   │ Presentation     │
    ├──────────────────┤
-   │ Network (3)      │ ← IP Routing
+   │ Layer 5          │ ← Session: Connection Management
+   │ Session          │
    ├──────────────────┤
-   │ Data Link (2)    │ ← Ethernet, WiFi
+   │ Layer 4  ⭐      │ ← Transport: TCP, UDP
+   │ Transport        │   (WIR SIND HIER!)
+   ├──────────────────┤
+   │ Layer 3          │ ← Network: IP Routing
+   │ Network          │
+   ├──────────────────┤
+   │ Layer 2          │ ← Data Link: Ethernet, WiFi
+   │ Data Link        │
+   ├──────────────────┤
+   │ Layer 1          │ ← Physical: Cables, Signals
+   │ Physical         │
    └──────────────────┘
 */

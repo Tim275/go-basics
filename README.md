@@ -91,15 +91,30 @@ Deep dive into Go's powerful features:
 ### Network Layers (OSI Model)
 ```
 ┌────────────────────┐
-│ HTTP (Layer 7)     │ ← Application: GET, POST, JSON
+│ Layer 7            │ ← Application: HTTP, FTP, SMTP, DNS
+│ Application        │   (User services, APIs, Web)
 ├────────────────────┤
-│ TCP (Layer 4)      │ ← Transport: Reliable, Ordered
+│ Layer 6            │ ← Presentation: Encryption, Compression
+│ Presentation       │   (SSL/TLS, JPEG, ASCII, JSON)
 ├────────────────────┤
-│ IP (Layer 3)       │ ← Network: Routing between hosts
+│ Layer 5            │ ← Session: Connection Management
+│ Session            │   (Login sessions, API sessions)
 ├────────────────────┤
-│ Ethernet (Layer 2) │ ← Data Link: Hardware addresses
+│ Layer 4            │ ← Transport: TCP (reliable), UDP (fast)
+│ Transport          │   (Ports, Segments, Flow control)
+├────────────────────┤
+│ Layer 3            │ ← Network: IP Routing, Addressing
+│ Network            │   (IP addresses, Routers, Packets)
+├────────────────────┤
+│ Layer 2            │ ← Data Link: MAC addresses, Switching
+│ Data Link          │   (Ethernet, WiFi, Frames)
+├────────────────────┤
+│ Layer 1            │ ← Physical: Cables, Signals, Bits
+│ Physical           │   (Fiber optic, Copper, Radio waves)
 └────────────────────┘
 ```
+
+**Our Focus**: Layers 4 (TCP) and 7 (HTTP/REST APIs)
 
 ### Clean Architecture Layers
 ```

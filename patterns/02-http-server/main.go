@@ -94,11 +94,28 @@ func greetHandler(w http.ResponseWriter, r *http.Request) {
 /*
 📚 HTTP Konzepte:
 
-1. HTTP baut auf TCP auf:
+1. HTTP baut auf TCP auf (OSI Model):
    ┌──────────────────┐
-   │ HTTP (Layer 7)   │ ← Struktur: GET, POST, Headers, JSON
+   │ Layer 7  ⭐      │ ← Application: HTTP, REST APIs
+   │ Application      │   (WIR SIND HIER!)
    ├──────────────────┤
-   │ TCP (Layer 4)    │ ← Zuverlässigkeit, Verbindung
+   │ Layer 6          │ ← Presentation: JSON, SSL/TLS
+   │ Presentation     │
+   ├──────────────────┤
+   │ Layer 5          │ ← Session: HTTP Sessions
+   │ Session          │
+   ├──────────────────┤
+   │ Layer 4          │ ← Transport: TCP (zuverlässig)
+   │ Transport        │
+   ├──────────────────┤
+   │ Layer 3          │ ← Network: IP Routing
+   │ Network          │
+   ├──────────────────┤
+   │ Layer 2          │ ← Data Link: Ethernet
+   │ Data Link        │
+   ├──────────────────┤
+   │ Layer 1          │ ← Physical: Network cables
+   │ Physical         │
    └──────────────────┘
 
 2. HTTP Request:
